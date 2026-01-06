@@ -1,6 +1,7 @@
 const container = document.querySelector(".container");
 const input = document.querySelector(".input-number");
 const resizerButton = document.querySelector(".resizer")
+const eraseButton = document.querySelector("erase")
 
 let isDrawing = false;
 
@@ -34,18 +35,9 @@ resizerButton.addEventListener("click", () => {
 
 })
 
-/*input.addEventListener("input", (e) => {
-    let gridAmount = Number(e.target.value)
-
-    if (isNaN(gridAmount) || gridAmount <= 0 || gridAmount > 100) {
-        alert("pick a number equal to or below 100!")
-        return
-    }
-
+eraseButton.addEventListener("click", () => {
     container.innerHTML = '';
-
-    gridGenerator(gridAmount)
-})*/
+})
 
 container.addEventListener("mousedown", (e) => {
     isDrawing = true;
