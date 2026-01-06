@@ -1,4 +1,5 @@
 const container = document.querySelector(".container")
+let isDrawing = false;
 
 function gridGenerator(gridAmount) {
     const gridSize = gridAmount * gridAmount;
@@ -15,3 +16,22 @@ function gridGenerator(gridAmount) {
         container.appendChild(newSquare)
     }
 }
+
+container.addEventListener("mousedown", (e) => {
+    isDraw = true;
+
+    if (e.target.classList.contains("grid-square")) {
+        e.target.style.backgroundColor = "black"
+    }
+
+})
+
+window.addEventListener("mouseup", () => {
+    isDrawing = false;
+})
+
+container.addEventListener("mouseover", (e) => {
+    if(isDrawing = true && e.target.classList.contains("grid-square")) {
+        e.target.style.backgroundColor = "black"
+    }
+})
