@@ -10,4 +10,12 @@ body {
     outline: 1px solid gray;
     width: 960px;
     height: 960px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.grid-square {
+    outline: 1px solid gray;
+    box-sizing: border-box;
 }
