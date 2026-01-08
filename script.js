@@ -108,3 +108,6 @@ container.addEventListener("mouseover", (e) => {
     }
 })
 
+container.addEventListener("dragstart", (e) => {
+    e.preventDefault()
+})
