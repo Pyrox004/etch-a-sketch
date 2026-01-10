@@ -3,7 +3,7 @@ A browser-based version of the classic Etch-a-Sketch toy, featuring dynamic grid
 Built as part of the TOP curriculum.
 
 ## Live Demo
-[text](https://pyrox004.github.io/etch-a-sketch/)
+[https://pyrox004.github.io/etch-a-sketch/](https://pyrox004.github.io/etch-a-sketch/)
 
 ## Features
 * **Dynamic Grid Resizing:** Change the drawing area from 1x1 up to 100x100 squares with automatic layout adjustment.
