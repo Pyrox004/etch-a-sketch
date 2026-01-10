@@ -55,7 +55,7 @@ function paintSquare(e) {
 
 gridGenerator(16)
 
-resizerButton.addEventListener("click", () => {
+resizerButton.addEventListener("click", ( )=> {
     let gridAmount = Number(input.value)
 
     if (isNaN(gridAmount) || gridAmount <= 0 || gridAmount > 100) {
@@ -67,6 +67,21 @@ resizerButton.addEventListener("click", () => {
 
     gridGenerator(gridAmount)
 
+})
+
+input.addEventListener("keyup", (e) => {
+    if(e.keyCode === 13) {
+        let gridAmount = Number(input.value)
+
+        if (isNaN(gridAmount) || gridAmount <= 0 || gridAmount > 100) {
+            alert("pick a number equal to or below 100!")
+            return
+        }
+
+        container.innerHTML = '';
+
+        gridGenerator(gridAmount)
+    }
 })
 
 eraseButton.addEventListener("click", () => {
