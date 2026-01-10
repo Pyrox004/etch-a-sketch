@@ -5,9 +5,11 @@ const eraseButton = document.querySelector(".erase")
 const rainbowButton = document.querySelector(".rainbow")
 const eraserButton = document.querySelector(".eraser")
 const blackButton = document.querySelector(".black")
+const opacityButton = document.querySelector(".opacity")
 
 let isDrawing = false;
 let currentMode = "black"
+let opacityCheck = "false"
 
 function gridGenerator(gridAmount) {
     const gridSize = gridAmount * gridAmount;
@@ -22,6 +24,32 @@ function gridGenerator(gridAmount) {
         newSquare.style.width = `${gridBlockSize}px`;
 
         container.appendChild(newSquare);
+    }
+}
+
+function paintSquare(e) {
+     if (currentMode == "erase") {
+        e.target.style.backgroundColor = "white"
+        e.target.style.opacity = "1"
+    } else if (currentMode == "rainbow") {
+        const r = Math.floor(Math.random() * 256)
+        const g = Math.floor(Math.random() * 256)
+        const b = Math.floor(Math.random() * 256)
+
+        e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
+    } else {
+        e.target.style.backgroundColor = "black"
+        e.target.style.outline = "1px solid gray"
+    } 
+    
+    if(opacityCheck === true) {
+        let currentOpacity = Number(e.target.style.opacity)
+
+        if(currentOpacity < 1) {
+            e.target.style.opacity = `${(currentOpacity + 0.1).toFixed(1)}`
+        }
+    } else {
+        e.target.style.opacity = "1"
     }
 }
 
@@ -62,6 +90,15 @@ eraserButton.addEventListener("click", () => {
     currentMode = "erase"
 })
 
+opacityButton.addEventListener("click", (e) => {
+    if(opacityCheck === false) {
+        opacityCheck = true
+    } else {
+        opacityCheck = false
+    }
+})
+
+
 
 container.addEventListener("mousedown", (e) => {
     isDrawing = true;
@@ -70,18 +107,7 @@ container.addEventListener("mousedown", (e) => {
         return
     }
 
-    if (currentMode == "erase") {
-        e.target.style.backgroundColor = "white"
-        e.target.style.outline = "1px solid gray"
-    } else if (currentMode == "rainbow") {
-        const r = Math.floor(Math.random() * 256)
-        const g = Math.floor(Math.random() * 256)
-        const b = Math.floor(Math.random() * 256)
-
-        e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
-    } else {
-        e.target.style.backgroundColor = "black"
-    }
+    paintSquare(e)
 
 })
 
@@ -94,18 +120,7 @@ container.addEventListener("mouseover", (e) => {
         return
     }
 
-    if (currentMode == "erase") {
-        e.target.style.backgroundColor = "white"
-    } else if (currentMode == "rainbow") {
-        const r = Math.floor(Math.random() * 256)
-        const g = Math.floor(Math.random() * 256)
-        const b = Math.floor(Math.random() * 256)
-
-        e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
-    } else {
-        e.target.style.backgroundColor = "black"
-        e.target.style.outline = "1px solid gray"
-    }
+    paintSquare(e)
 })
 
 container.addEventListener("dragstart", (e) => {

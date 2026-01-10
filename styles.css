@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-    outline: 1px solid gray;
+    border: 1px solid black;
     width: 960px;
     height: 960px;
     display: flex;
@@ -16,6 +16,6 @@ body {
 }
 
 .grid-square {
-    outline: 1px solid gray;
     box-sizing: border-box;
+    border: 1px solid black;
 }
