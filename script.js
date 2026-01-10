@@ -39,7 +39,6 @@ function paintSquare(e) {
         e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
     } else {
         e.target.style.backgroundColor = "black"
-        e.target.style.outline = "1px solid gray"
     } 
     
     if(opacityCheck === true) {
